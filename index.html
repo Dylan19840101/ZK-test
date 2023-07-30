@@ -72,7 +72,6 @@
         <button id="claimButton">Claim</button>
         <div id="result"></div>
         <button id="connectWalletButton" onclick="connectWallet()">Connect Wallet</button>
-        <div id="walletAddress"></div>
     
     <script>
     async function connectWallet() {
@@ -82,7 +81,7 @@
                 await window.ethereum.enable();
                 web3 = new Web3(window.ethereum);
                 let accounts = await web3.eth.getAccounts();
-                document.getElementById('walletAddress').innerHTML = 'Connected: ' + accounts[0];
+                document.getElementById('connectWalletButton').innerHTML = accounts[0];
             } catch (error) {
                 // User denied account access...
                 console.error("User denied account access")
